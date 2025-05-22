@@ -644,7 +644,7 @@ def feedback_module():
             st.warning("⚠️ 請輸入內容")
         else:
             # 這裡你可以擴展成寫入資料庫或檔案
-            with open("../references/feedback.txt", "a", encoding="utf-8") as f:
+            with open("references/feedback.txt", "a", encoding="utf-8") as f:
                 f.write(f"Feedback:\n{feedback_input}\n---\n")
             st.session_state.feedback_submitted = True
 
