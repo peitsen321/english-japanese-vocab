@@ -651,7 +651,11 @@ def feedback_module():
     if st.session_state.feedback_submitted:
         st.success(text["thank_feedback"])
 
-
+# 顯示目前回饋檔案內容（方便 debug）
+    if os.path.exists("references/feedback.txt"):
+        with open("references/feedback.txt", "r", encoding="utf-8") as f:
+            content = f.read()
+        st.text_area("回饋紀錄", content, height=200)
 # -------------------------
 # 主程式路由
 # -------------------------
