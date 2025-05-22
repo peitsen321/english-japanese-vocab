@@ -10,8 +10,7 @@ from openai import OpenAI
 from openai import OpenAIError
 import pandas as pd
 
-# 讀取題庫
-words_df = pd.read_csv("../Week12/vocab_quiz_draft.csv")
+
 
 # -------------------------
 # 頁面設定
