@@ -631,6 +631,38 @@ def quiz_module():
 # -------------------------
 # 反饋功能
 # -------------------------
+import streamlit as st
+import sqlite3
+
+# -------------------------
+# 初始化資料庫，建立回饋表
+# -------------------------
+def init_db():
+    conn = sqlite3.connect("feedback.db")
+    c = conn.cursor()
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS feedbacks (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            content TEXT NOT NULL,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+# -------------------------
+# 將回饋寫入資料庫
+# -------------------------
+def save_feedback_to_db(feedback_text):
+    conn = sqlite3.connect("feedback.db")
+    c = conn.cursor()
+    c.execute("INSERT INTO feedbacks (content) VALUES (?)", (feedback_text,))
+    conn.commit()
+    conn.close()
+
+# -------------------------
+# 回饋功能模組
+# -------------------------
 def feedback_module():
     st.header(text["feedback"])
 
@@ -643,21 +675,24 @@ def feedback_module():
         if feedback_input.strip() == "":
             st.warning("⚠️ 請輸入內容")
         else:
-            # 這裡你可以擴展成寫入資料庫或檔案
-            with open("references/feedback.txt", "a", encoding="utf-8") as f:
-                f.write(f"Feedback:\n{feedback_input}\n---\n")
+            save_feedback_to_db(feedback_input)
             st.session_state.feedback_submitted = True
 
     if st.session_state.feedback_submitted:
         st.success(text["thank_feedback"])
 
+# -------------------------
+# 主程式入口
+# -------------------------
+if __name__ == "__main__":
+    init_db()  # 啟動時建立資料表
 
-# -------------------------
-# 主程式路由
-# -------------------------
-if menu == text["dictionary"]:
-    dictionary_module()
-elif menu == text["quiz"]:
-    quiz_module()
-elif menu == text["feedback"]:
-    feedback_module()
+    # 假設你有個選單 menu，這裡示範如何呼叫
+    menu = st.sidebar.selectbox("選單", [text["dictionary"], text["quiz"], text["feedback"]])
+
+    if menu == text["dictionary"]:
+        dictionary_module()
+    elif menu == text["quiz"]:
+        quiz_module()
+    elif menu == text["feedback"]:
+        feedback_module()
