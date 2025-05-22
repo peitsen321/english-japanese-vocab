@@ -66,6 +66,7 @@ LANGUAGES = {
         "dictionary": "Dictionary",
         "quiz": "Vocabulary Quiz",
         "feedback": "Feedback",
+        "learned_words": "Vocabulary learned",
         "explanation_example": "Explanation and example:",
         "feedback_prompt": "Please leave your feedback or suggestion:",
         "submit_feedback": "Submit Feedback",
@@ -99,6 +100,7 @@ LANGUAGES = {
         "quiz": "単語クイズ",
         "feedback": "フィードバック",
         "explanation_example": "説明と例文：",
+        "learned_words": "これまでに調べた単語",
         "feedback_prompt": "フィードバックやご意見をお願いします：",
         "submit_feedback": "送信",
         "thank_feedback": "フィードバックありがとうございます！",
@@ -159,7 +161,6 @@ LANGUAGES = {
 
     }
 }
-
 # -------------------------
 # 讀取單字CSV檔 (這個檔案需事先準備放同目錄)
 # -------------------------
