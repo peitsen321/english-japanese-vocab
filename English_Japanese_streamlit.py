@@ -59,8 +59,8 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 LANGUAGES = {
     "English": {
         "select_interface": "Select Interface Language",
-        "select_word_lang": "Select Word Language",
-        "select_explain_lang": "Select Explanation Language",
+        "select_word_lang": "Select the language of the word you want to look up",
+        "select_explain_lang": "Select the language in which the word will be explained",
         "input_word": "Enter the word to look up",
         "lookup": "Look up word",
         "dictionary": "Dictionary",
@@ -91,8 +91,8 @@ LANGUAGES = {
     },
     "日本語": {
         "select_interface": "インターフェース言語を選択してください",
-        "select_word_lang": "単語の言語を選択してください",
-        "select_explain_lang": "説明の言語を選択してください",
+        "select_word_lang": "調べる単語の言語を選択してください",
+        "select_explain_lang": "単語の説明の言語を選択してください",
         "input_word": "調べたい単語を入力してください",
         "lookup": "単語を調べる",
         "dictionary": "辞書",
@@ -125,8 +125,8 @@ LANGUAGES = {
     },
     "中文": {
         "select_interface": "選擇介面語言",
-        "select_word_lang": "選擇單字語言",
-        "select_explain_lang": "選擇解釋語言",
+        "select_word_lang": "選擇要查找的單字語言",
+        "select_explain_lang": "選擇單字解釋的語言",
         "input_word": "輸入要查詢的單字",
         "lookup": "查詢單字",
         "dictionary": "字典",
