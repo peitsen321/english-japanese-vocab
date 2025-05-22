@@ -9,7 +9,10 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from openai import OpenAIError
 import pandas as pd
+import streamlit as st
+from openai import OpenAI
 
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
 # -------------------------
